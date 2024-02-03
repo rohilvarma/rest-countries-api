@@ -17,7 +17,7 @@ const ToggleTheme = () => {
   }
   return (
     <div
-      className=""
+      className="font-semibold cursor-pointer"
       onClick={() => setTheme(theme === "light" ? "dark" : "light")}
     >
       {theme === "light" ? (

@@ -3,6 +3,8 @@ import { Nunito_Sans } from "next/font/google";
 import "./globals.css";
 import Navbar from "@/components/Navbar";
 import { ThemeProvider } from "@/utils/theme-provider";
+import Loading from "./loading";
+import { Suspense } from "react";
 
 const nunitoSans = Nunito_Sans({
   subsets: ["latin"],
@@ -21,15 +23,17 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning> 
-      <body className={`${nunitoSans.className} antialiased scroll-smooth bg-very_light_gray-light text-very_dark_blue-light dark:bg-very_dark_blue-dark dark:text-white`}>
+      <body className={`${nunitoSans.className} antialiased scroll-smooth theme`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
           enableSystem
           disableTransitionOnChange
         >
-          <Navbar />
-          {children}
+          <Suspense fallback={<Loading />}>
+            <Navbar />
+            {children}
+          </Suspense>
         </ThemeProvider>
       </body>
     </html>
