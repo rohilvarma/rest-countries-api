@@ -2,3 +2,8 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer components {
+  .container {
+    @apply w-[90%] mx-auto md:max-w-2xl lg:max-w-[90%] xl:max-w-[75%] md:text-lg;
+  }
+}
