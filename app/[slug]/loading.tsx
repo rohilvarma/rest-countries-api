@@ -1,6 +1,8 @@
-import Link from "next/link"
-import { BsArrowLeft } from "react-icons/bs"
-const SkeletonDetail = () => {
+import Link from 'next/link'
+import React from 'react'
+import { BsArrowLeft } from 'react-icons/bs'
+
+const Loading = () => {
   return <div className="container">
   <Link
     href={"/"}
@@ -42,7 +44,7 @@ const SkeletonDetail = () => {
           </div>
         </div>
       </div>
-      <div className="mb-16 lg:mt-12">
+      <div className="mb-16 lg:mt-20">
         <h3 className="font-semibold text-base mb-4 lg:hidden">Border Countries:</h3>
         <div className="flex gap-3 flex-wrap items-center">
         <h3 className="font-semibold text-base hidden lg:block">Border Countries:</h3>
@@ -59,4 +61,4 @@ const SkeletonDetail = () => {
 </div>
 }
 
-export default SkeletonDetail
+export default Loading

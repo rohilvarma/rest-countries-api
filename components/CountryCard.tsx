@@ -17,7 +17,7 @@ const CountryCard = (props: ICountryCard) => {
           <h3 className="font-black text-lg my-6">{props.name}</h3>
           <div className="flex flex-col gap-y-1 mt-3 text-sm">
             <div className="">
-              <span className="font-bold">Population:</span> {props.population}
+              <span className="font-bold">Population:</span> {Intl.NumberFormat('en-US').format(Number(props.population))}
             </div>
             <div className="">
               <span className="font-bold">Region:</span> {props.region}
