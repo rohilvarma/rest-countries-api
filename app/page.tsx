@@ -1,9 +1,8 @@
 import CountryCard from "@/components/CountryCard";
-import { GET_ALL_DATA_API } from "@/utils/constants";
 import { ICountryCard } from "@/utils/interfaces";
 
 const getAllData = async() => {
-  const response = await fetch(GET_ALL_DATA_API, { cache: "no-store" });
+  const response = await fetch(`https://restcountries.com/v3.1/all`, { cache: "no-store" });
   const unfilteredData = await response.json();
   const data: ICountryCard[] = unfilteredData.map((item: any) => ({
     imageSrc: item.flags.svg,
