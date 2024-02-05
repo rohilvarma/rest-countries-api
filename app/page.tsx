@@ -5,7 +5,7 @@ import { ICountryCard } from "@/utils/interfaces";
 
 const getAllData = async () => {
   const response = await fetch(`https://restcountries.com/v3.1/all`, {
-    cache: "no-store",
+    cache: 'default'
   });
   const unfilteredData = await response.json();
   const data: ICountryCard[] = unfilteredData.map((item: any) => ({

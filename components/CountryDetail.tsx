@@ -4,9 +4,7 @@ import Link from "next/link";
 import { BsArrowLeft } from "react-icons/bs";
 
 const getCountryData = async (pathName: string) => {
-  const response = await fetch(`https://restcountries.com/v3.1/name${pathName}?fullText=true`, {
-    cache: "no-store",
-  });
+  const response = await fetch(`https://restcountries.com/v3.1/name${pathName}?fullText=true`);
   const unfilteredData = await response.json();  
   const data: ICountryDetail = {
     imageSrc: unfilteredData[0].flags.svg,
@@ -26,9 +24,7 @@ const getCountryData = async (pathName: string) => {
   return data;
 };
 const getCountryBorders = async (countryCode: string) => {
-  const response = await fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`, {
-    cache: "no-store",
-  });
+  const response = await fetch(`https://restcountries.com/v3.1/alpha/${countryCode}`);
   const data = await response.json();
   return data[0].name.common;
 };

@@ -9,10 +9,10 @@ export interface ICountryCard {
 }
 
 export interface ICountryDetail extends ICountryCard {
-  nativeName: string;
+  nativeName: Object;
   subRegion: string;
   topLevelDomain: string;
-  currencies: string;
+  currencies: Object;
   languages: string[];
   borderCountries: string[];
 }
