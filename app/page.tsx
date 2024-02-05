@@ -1,8 +1,11 @@
-import CountryCard from "@/components/CountryCard";
+import CountryGrid from "@/components/CountryGrid";
+import Search from "@/components/Search";
 import { ICountryCard } from "@/utils/interfaces";
 
-const getAllData = async() => {
-  const response = await fetch(`https://restcountries.com/v3.1/all`, { cache: "no-store" });
+const getAllData = async () => {
+  const response = await fetch(`https://restcountries.com/v3.1/all`, {
+    cache: "no-store",
+  });
   const unfilteredData = await response.json();
   const data: ICountryCard[] = unfilteredData.map((item: any) => ({
     imageSrc: item.flags.svg,
@@ -14,15 +17,14 @@ const getAllData = async() => {
     slug: item.name.common,
   }));
   return data;
-}
+};
 
 export default async function Home() {
-  const countries = await getAllData()
+  const countries = await getAllData();
   return (
-    <main className="card-grid">
-      {countries.map((country, index) => (
-        <CountryCard key={index} {...country} />
-      ))}
-    </main>
+    <div className="">
+      <Search />
+      <CountryGrid countryData={countries} />
+    </div>
   );
 }

@@ -21,3 +21,16 @@ export interface ICountryStore {
   countries: ICountryCard[];
   setCountries: (data: ICountryCard[]) => void;
 }
+
+export interface IInputStore {
+  searchValue: string;
+  updateSearch: (value: string) => void;
+  cancelSearch: () => void;
+}
+
+export interface IDataStore {
+  countries: ICountryCard[];
+  renderCountries: ICountryCard[];
+  setCountries: (data: ICountryCard[]) => void;
+  filterCountries: (search: string) => void;
+}
