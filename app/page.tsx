@@ -1,4 +1,5 @@
 import CountryGrid from "@/components/CountryGrid";
+import DropdownFilter from "@/components/DropdownFilter";
 import Search from "@/components/Search";
 import { ICountryCard } from "@/utils/interfaces";
 
@@ -23,7 +24,10 @@ export default async function Home() {
   const countries = await getAllData();
   return (
     <div className="">
-      <Search />
+      <div className="container lg:flex lg:justify-between lg:items-center">
+        <Search />
+        <DropdownFilter />
+      </div>
       <CountryGrid countryData={countries} />
     </div>
   );
